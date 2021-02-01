@@ -1,85 +1,54 @@
--- drop table Titles;
-
-CREATE TABLE Titles(
-    titleID varchar(40) PRIMARY KEY NOT NULL,
-    title varchar(40)   NOT NULL
-     );
-
-select * from Titles;
-
--- drop table Departments;
-
-CREATE TABLE Departments (
-    deptNo varchar(20) PRIMARY KEY NOT NULL,
-    deptName varchar(40)   NOT NULL
-     );
-	 
-select * from Departments;
-
--- drop table Employees;
-
-CREATE TABLE Employees (
-    empNo int  PRIMARY KEY NOT NULL,
-    titleID varchar(40)   NOT NULL,
-    birthDate date   NOT NULL,
-    NameF varchar(40)   NOT NULL,
-    NameL varchar(40)   NOT NULL,
-    sex varchar(10)   NOT NULL,
-    hireDate date   NOT NULL,
-	foreign key (titleID) references Titles(titleID)
-    );
-select * from Employees;
-
--- select  emp.empNo, emp.NameL, emp.NameF, emp.sex, sal.salary  
--- from Employees as emp
--- left join salaries as sal
--- on emp.empNo = sal.empNo
--- order by empNo ASC;
-
--- drop table DeptEmp;
-	 
-CREATE TABLE DeptEmp (
-    empNo int NOT NULL,
-    deptNo varchar(20)   NOT NULL,
-	foreign key (empNo) references Employees(empNo),
-	foreign key (deptNo) references Departments(deptNo)
-);
-select * from DeptEmp;
-
--- drop table Salaries;
-
-CREATE TABLE Salaries (
-    empNo int   NOT NULL,
-    salary int   NOT NULL,
-    foreign key (empNo) references employees(empNo)
-     );
-
-select * from Salaries;
-
--- drop table Manager;
-
-CREATE TABLE Manager (
-    deptNo varchar(20)   NOT NULL,
-    empNo int   NOT NULL,
-	foreign key (deptNo) references departments(deptNo),
-	foreign key (empNo) references employees(empNo)
+create table departments(
+	dept_no varchar primary key not null,
+	dept_name varchar not null
 );
 
-select * from Manager;
+-- select * from departments;
 
+create table dept_employees(
+	emp_no int,
+	dept_no varchar not null,
+	foreign key (dept_no) references departments(dept_no),
+	foreign key (emp_no) references employees(emp_no)
+);
 
--- ALTER TABLE "Dept_Employee" ADD CONSTRAINT "fk_Dept_Employee_deptNo" FOREIGN KEY("deptNo")
--- REFERENCES "Departments" ("deptNo");
+-- select * from dept_employees;
 
--- ALTER TABLE "Salaries" ADD CONSTRAINT "fk_Salaries_empNo" FOREIGN KEY("empNo")
--- REFERENCES "Dept_Employee" ("empNo");
+create table manager(
+	dept_no varchar not null,
+	emp_no int,
+	foreign key (dept_no) references departments(dept_no),
+	foreign key (emp_no) references employees(emp_no)
+);
 
--- ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_empNo" FOREIGN KEY("empNo")
--- REFERENCES "Dept_Employee" ("empNo");
+-- select * from manager;
 
--- ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_titleID" FOREIGN KEY("titleID")
--- REFERENCES "Titles" ("titleId");
+create table employees(
+	emp_no int primary key not null,
+	emp_title_id varchar not null,
+	birth_date date not null,
+	first_name varchar not null,
+	last_name varchar not null,
+	sex varchar not null,
+	hire_date date not null,
+	foreign key (emp_title_id) references titles(title_id)
+);
 
--- ALTER TABLE "Manager" ADD CONSTRAINT "fk_Manager_deptNo_empNo" FOREIGN KEY("deptNo", "empNo")
--- REFERENCES "Dept_Employee" ("deptNo", "empNo");
+-- select * from employees;
 
+create table salaries(
+	emp_no int not null,
+	salary int,
+	foreign key (emp_no) references employees(emp_no)
+);
+
+-- select * from salaries;
+
+create table titles(
+	title_id varchar primary key not null,
+	title varchar not null
+);
+
+-- select * from titles;
+-- Thought I needed this to find my DB for bonus section
+-- show data_directory;
