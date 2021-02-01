@@ -7,7 +7,7 @@
     designing SQL DB tables with the proper relationships
     properly importing CSV's into the tables.
     
-I could not figure out how to import the CSV's via code in hte PGAdmin query window, so I did it the inefficient way using right clicking and file selection.  This is something I need to figure out when there's no time pressure.    
+I could not figure out how to import the CSV's via code in the PGAdmin query window, so I did it the inefficient way using right-clicking and file selection.  This is something I need to figure out when there's no time pressure.    
 
 ### Step two required writing SQL queries to extract data to answer 8 questions.
     Number 4 was the most difficult to write.  
