@@ -1,4 +1,6 @@
-# sql-challenge bootcampspot.com homework due 2/1/21
+# SQL-Challenge
+
+## bootcampspot.com homework due 2/1/21
  
 ### Step one of this homework required:
     examining CSV's
