@@ -16,7 +16,7 @@ I am not sure I'll get to this part of the assignment.
 
 ### Structure of this repository
 
-    The data files are in /EmployeeSQL
-    the ERD diagram is called **ERD Diagram.png**
-    ** pewletthackard.sql ** is the table setup file
-    **SQLqueries.sql** is where the actual homework questions were answered.
+    The CSV data files are in /EmployeeSQL
+    the ERD diagram is called ERD Diagram.png
+    pewletthackard.sql is the table setup file
+    SQLqueries.sql is where the actual homework questions were answered
