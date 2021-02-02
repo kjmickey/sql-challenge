@@ -15,10 +15,14 @@ I could not figure out how to import the CSV's via code in the PGAdmin query win
 
 ### Step three (bonus) required manipulating the data via python queries.  
 I am not sure I'll get to this part of the assignment.
+Update:  This was brutal. The instructions on connecting to the DB were inadequate and I spent approximately 2 hours trying to get this line working:
+    engine = create_engine("postgresql://postgres:PASSWORD@localhost:5432/PewlettHackard")
 
+turns out the "user name" is postgres, not the account name on my computer 
 ### Structure of this repository
 
     The CSV data files are in /EmployeeSQL
     the ERD diagram is called ERD Diagram.png
     pewletthackard.sql is the table setup file
     SQLqueries.sql is where the actual homework questions were answered
+    sql-challenge bonus.ipynb contains the bonus question code
